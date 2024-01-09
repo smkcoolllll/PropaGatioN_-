@@ -56,15 +56,24 @@ function increaseScore() {
     document.querySelector("#scoreval").textContent = score;
 }
 
+function decreaseScore() {
+    if (score > 0) {
+        score -= 10;
+        document.querySelector("#scoreval").textContent = score;
+    }
+}
+
 document.querySelector("#pbtm").addEventListener("click", function (dets) {
     var clickedNum = Number(dets.target.textContent);
     if (clickedNum == hitVal) {
         increaseScore();
-        makeBubble();
-        getNewHit();
+    } else {
+        decreaseScore();
     }
-})
 
+    makeBubble();
+    getNewHit();
+})
 
 makeBubble();
 runTimer();
